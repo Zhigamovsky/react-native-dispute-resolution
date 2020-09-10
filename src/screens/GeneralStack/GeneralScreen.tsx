@@ -30,21 +30,23 @@ const GeneralScreen: React.FC<GeneralScreenProps> = ({
     >
       <InnerContainer>
         {
+          [...ChoiceList, ...ChoiceList].map((choice, index) => (
+            <ChoiceItem 
+              {...choice}
+              key={choice.id + index}
+              onPress={() => NavEvents.to(choice.path)}
+              delayMounting={index}
+            />
+          ))
+        }
+        {/* {
           ChoiceList.map(choice => (
             <ChoiceItem 
               {...choice}
               onPress={() => NavEvents.to(choice.path)}
             />
           ))
-        }
-        {
-          ChoiceList.map(choice => (
-            <ChoiceItem 
-              {...choice}
-              onPress={() => NavEvents.to(choice.path)}
-            />
-          ))
-        }
+        } */}
       </InnerContainer>
     </Container>
   )

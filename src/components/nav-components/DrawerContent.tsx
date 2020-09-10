@@ -38,22 +38,7 @@ export const DrawerContent: React.FC<DrawerContentProps> = props => {
         backgroundColor: COLORS.main
       }}
     >
-      {/* <WhiteWrapper /> */}
-      {/* <DrawerUserInformation /> */}
-      { null
-        // Object.keys(props.descriptors).map(key => {
-        //   let path = (key.split('-')[0] as ENavigationDrawerPaths);
-        //   let _item = DrawerItemTranslater[path];
-        //   return (
-        //     <DrawerContentItem 
-        //       key={path}
-        //       title={_item.title[language.slug]}
-        //       onPress={() => props.navigation.navigate(_item.path)}
-        //       renderIcon={() => <TranslatorIcon source={_item.icon} />}
-        //     />
-        //   )
-        // })
-      }
+      <Divider height={10} />
       <DrawerContentItem 
         title='Главная'
         iconName='home-outline'
@@ -80,10 +65,3 @@ export const DrawerContent: React.FC<DrawerContentProps> = props => {
     </DrawerContentScrollView>
   )
 }
-
-const WhiteWrapper = styled.View`
-  
-  height: 8px;
-  width: 100%;
-  z-index: 10;
-`//background: white;

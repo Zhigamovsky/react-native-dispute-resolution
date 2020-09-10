@@ -23,9 +23,11 @@ const SwitherScreen: React.FC<SwitcherScreenProps> = ({
 
 const InnerContainer = styled.View`
   width: 100%;
-  background: blue;
+  
   height: 100%;
   ${FLEX('column')}
-`
+` 
+
+// background: blue;
 
 export default SwitherScreen

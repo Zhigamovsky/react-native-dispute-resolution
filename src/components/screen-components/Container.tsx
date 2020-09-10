@@ -53,10 +53,10 @@ const SafeView = styled.SafeAreaView<{
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   margin-top: 10px;
-`;
+`
 
 const SafeScrollView = styled.ScrollView`
   width: 100%;
-`;
+`
 
 export default Container;

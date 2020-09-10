@@ -21,15 +21,15 @@ export type FontVariants =
   'SemiBold' 
 ; 
 
-export interface FontConstructor {
+export interface FontConstructor<T> {
   (
     type?: FontVariants,
     size?: number,
     color?: string
-  ): string
+  ): T
 }
 
-export const FONT: FontConstructor = (type = 'Regular', size = 20, color = '#000000') => {
+export const FONT: FontConstructor<string> = (type = 'Regular', size = 20, color = '#000000') => {
   return `
     font-family: '${FontFamily}-${type}';
     font-size: ${size}px;
@@ -37,20 +37,29 @@ export const FONT: FontConstructor = (type = 'Regular', size = 20, color = '#000
   `;
 }
 
+export const SheetFONT: FontConstructor<object> = (type = 'Regular', fontSize = 20, color = '#000000') => {
+  return {
+    fontFamily: `${FontFamily}-${type}`,
+    fontSize,
+    color
+  }
+}
+
 export type FlexDirectionVariants = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 export type FlexAlignVariants = 'center' | 'flex-start' | 'flex-end' | 'stretch' | 'baseline';
 export type FlexJustifyVariants = 'center' | 'space-between' | 'space-around' | 'space-evenly' | 'flex-start' | 'flex-end';
 export type FlexWrapVariants = 'wrap' | 'nowrap';
-export interface FlexConstructor {
+
+export interface FlexConstructor<T> {
   (
     direction?: FlexDirectionVariants,
     align?: FlexAlignVariants,
     justify?: FlexJustifyVariants,
     wrap?: FlexWrapVariants
-  ): string
+  ): T
 }
 
-export const FLEX: FlexConstructor = (direction = 'row', align = 'center', justify = 'center', wrap = 'nowrap') => {
+export const FLEX: FlexConstructor<string> = (direction = 'row', align = 'center', justify = 'center', wrap = 'nowrap') => {
   return `
     display: flex;
     flex-direction: ${direction};
@@ -58,6 +67,15 @@ export const FLEX: FlexConstructor = (direction = 'row', align = 'center', justi
     justify-content: ${justify};
     flex-wrap: ${wrap};
   `;
+}
+
+export const SheetFLEX: FlexConstructor<object> = (flexDirection = 'row', alignItems = 'center', justifyContent = 'center', flexWrap = 'nowrap') => {
+  return {
+    flexDirection,
+    alignItems,
+    justifyContent,
+    flexWrap
+  }
 }
 
 interface ResponsibleOnePartyAction {
